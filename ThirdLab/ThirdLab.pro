@@ -25,13 +25,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
     docwindow_oshepkov_artem.cpp
 
 HEADERS += \
-        mainwindow.h \
     docwindow_oshepkov_artem.h \
     sdiprogram_oshepkov_artem.h
 
-FORMS += \
-        mainwindow.ui
+FORMS +=

@@ -60,7 +60,7 @@ public:
 public slots:
     void slotAbout()
     {
-        QMessageBox::about(this, "Application", "SDI Example");
+        QMessageBox::about(this, "Application", "ИП-017 Ощепков Артем");
     }
     void slotChangeWindowTitle(const QString& str)
     {
