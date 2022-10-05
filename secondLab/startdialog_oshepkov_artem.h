@@ -34,6 +34,22 @@ public slots:
         }
 
         delete pInputDialog;
+
+        QMessageBox msgBox;
+        msgBox.setText("Вы хотетие снова ввести свою информацию?");
+        //msgBox.setInformativeText("Вы хотетие снова ввести свою информацию?");
+        msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+        msgBox.setDefaultButton(QMessageBox::Cancel);
+        int ret = msgBox.exec();
+
+        switch (ret) {
+        case QMessageBox::Ok:
+            slotButtonClicked();
+            break;
+        case QMessageBox::Cancel:
+            this->close();
+            break;
+        }
     }
 };
 

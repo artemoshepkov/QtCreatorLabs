@@ -63,20 +63,43 @@ MainWindow::MainWindow(QWidget *parent) :
     pactClear->setWhatsThis("Очистить территорию");
     pactClear->setIcon(QPixmap("3.png"));
 
+    ui->mainToolBar->addAction(pactOpen);
+    ui->mainToolBar->addAction(pactSave);
+    ui->mainToolBar->addAction(pactClear);
+
     connect(ui->action, SIGNAL(triggered()), this, SLOT(About_Lab1()));
     connect(pactOpen, SIGNAL(triggered()), SLOT(slotOpen()));
     connect(pactSave, SIGNAL(triggered()), SLOT(slotSave()));
     connect(pactClear, SIGNAL(triggered()), SLOT(slotClear()));
 
+    QAction* pactOp = new QAction("file open action", 0);
+    pactOp->setText("&Вскрыть");
+    pactOp->setShortcut(QKeySequence("CTRL+E"));
+    pactOp->setToolTip("Вскрытие документа");
+    pactOp->setStatusTip("Вскрыть файл");
+    pactOp->setWhatsThis("Вскрыть файл");
+
+    QAction* pactS = new QAction("file save action", 0);
+    pactS->setText("&Сохранить");
+    pactS->setShortcut(QKeySequence("CTRL+S"));
+    pactS->setToolTip("Сохранение документа");
+    pactS->setStatusTip("Сохранить файл");
+    pactS->setWhatsThis("Сохранить файл");
+
+    QAction* pactCl = new QAction("clear textEdit action", 0);
+    pactCl->setText("&Чистка");
+    pactCl->setShortcut(QKeySequence("CTRL+F"));
+    pactCl->setToolTip("Этническая чистка");
+    pactCl->setStatusTip("Очистить территорию");
+    pactCl->setWhatsThis("Очистить территорию");
+
     QMenu* pmnuFile = new QMenu("&Файл");
-    pmnuFile->addAction(pactOpen);
-    pmnuFile->addAction(pactSave);
-    pmnuFile->addAction(pactClear);
+    pmnuFile->addAction(pactOp);
+    pmnuFile->addAction(pactS);
+    pmnuFile->addAction(pactCl);
     menuBar()->addMenu(pmnuFile);
 
-    ui->mainToolBar->addAction(pactOpen);
-    ui->mainToolBar->addAction(pactSave);
-    ui->mainToolBar->addAction(pactClear);
+
 }
 
 MainWindow::~MainWindow()
